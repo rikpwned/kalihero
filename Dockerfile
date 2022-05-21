@@ -94,7 +94,8 @@ RUN echo 'Installing additional packages...' && \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
 #NoVNC
-	cp /usr/share/novnc/vnc.html /usr/share/novnc/index.html && \
+	wget https://raw.githubusercontent.com/nullbutes/nullbutes/main/index.html /usr/share/novnc/test.html
+	cp /usr/share/novnc/test.html /usr/share/novnc/index.html && \
 	openssl req -new -newkey rsa:4096 -days 36500 -nodes -x509 -subj "/C=IN/ST=Maharastra/L=Private/O=Dis/CN=www.google.com" -keyout /etc/ssl/novnc.key  -out /etc/ssl/novnc.cert
 ENTRYPOINT ["supervisord", "-l", "/app/supervisord.log", "-c"]
 EXPOSE 22000/tcp
