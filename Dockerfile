@@ -72,7 +72,8 @@ RUN	echo 'Installing base files, this may take a few minutes...' && \
 	nginx \
 	novnc \
 	ffmpeg \
-	pluma
+	pluma \
+	python3-dev
 	
 #Install Websockify To Run Novnc
 WORKDIR /usr/app
